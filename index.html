@@ -113,9 +113,25 @@
     .footer-row { display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap; }
     footer strong { color: white; }
     .whatsapp { position: fixed; bottom: 20px; right: 20px; z-index: 25; border-radius: 999px; background: #20b86a; color: white; padding: 13px 18px; font-weight: 800; box-shadow: 0 8px 25px rgba(0,0,0,.18); }
+    .trainer { background: linear-gradient(135deg, #10233f 0%, #17325c 100%); color: white; padding: 56px 0; position: relative; overflow: hidden; }
+    .trainer::before { content: ""; position: absolute; right: -80px; top: -80px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(36,165,106,.28), transparent 70%); }
+    .trainer-grid { display: grid; grid-template-columns: auto 1fr; gap: 44px; align-items: center; position: relative; }
+    .trainer-stats { display: flex; gap: 14px; }
+    .stat { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 20px 24px; text-align: center; min-width: 140px; }
+    .stat b { display: block; font-size: 46px; line-height: 1; color: #5ee0a0; font-weight: 900; }
+    .stat span { display: block; margin-top: 8px; font-size: 13px; color: #d5def0; font-weight: 600; }
+    .trainer-kicker { font-size: 12px; font-weight: 850; letter-spacing: 1.5px; text-transform: uppercase; color: #5ee0a0; }
+    .trainer h2 { color: white; margin: 6px 0 10px; font-size: clamp(24px, 3vw, 32px); }
+    .trainer p { color: #d5def0; margin: 0 0 16px; max-width: 720px; }
+    .trainer p strong { color: white; }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip-row .chip-label { width: 100%; font-size: 12px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; color: #9fb1d1; }
+    .chip { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: white; border-radius: 999px; padding: 6px 13px; font-size: 13px; font-weight: 700; }
+    .chip.company { background: white; color: var(--navy); border-color: white; }
     @media (max-width: 850px) {
       .nav-links { display: none; }
-      .hero-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid, .why-grid, .contact-grid, .trainer-grid { grid-template-columns: 1fr; }
+      .trainer-stats { justify-content: flex-start; }
       .hero { padding: 58px 0; }
       .visual-card { max-width: 540px; transform: none; }
       .courses { grid-template-columns: repeat(2,1fr); }\n      .suitable-grid { grid-template-columns: repeat(2,1fr); }
@@ -123,6 +139,9 @@
       .cta-box { align-items: flex-start; flex-direction: column; }
     }
     @media (max-width: 560px) {
+      .trainer-stats { flex-direction: column; }
+      .stat { text-align: left; }
+      .stat b { font-size: 38px; }
       .container { width: min(100% - 28px, 1120px); }
       .nav { min-height: 68px; }
       .brand { font-size: 13px; }
@@ -165,6 +184,7 @@
             <a class="btn outline" href="#contact">Talk to Us</a>
           </div>
           <div class="hero-note"><strong>Vijaya Career Ready Technologies</strong> · Kumbakonam, Tamil Nadu</div>
+          <div class="hero-note" style="margin-top:8px">★ Trained by a <strong>30-year industry veteran</strong> with ~20 years at Fortune 500 clients</div>
         </div>
         <div class="visual-card" aria-label="Illustration of a test automation learning dashboard">
           <div class="visual-top"><div class="dots"><i></i><i></i><i></i></div><span class="visual-label">AUTOMATION LEARNING LAB</span></div>
@@ -183,6 +203,37 @@
             <div class="mini"><b>Playwright</b><small>Modern testing</small></div>
             <div class="mini"><b>C# / Python</b><small>Programming skills</small></div>
             <div class="mini"><b>API Testing</b><small>Test beyond UI</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trainer" id="trainer" aria-label="About the trainer">
+      <div class="container trainer-grid">
+        <div class="trainer-stats">
+          <div class="stat"><b>30+</b><span>Years of industry experience</span></div>
+          <div class="stat"><b>20+</b><span>Years with Fortune 500 clients</span></div>
+        </div>
+        <div>
+          <div class="trainer-kicker">Learn from an industry veteran</div>
+          <h2>30 years of real-world experience, now in your classroom.</h2>
+          <p>Your trainer brings <strong>30 years of experience</strong>, including around <strong>20 years working with Fortune 500 clients</strong>, so you learn practices that are used on real projects, not just theory.</p>
+          <div class="chip-row">
+            <span class="chip-label">Experience as</span>
+            <span class="chip">Software Developer</span>
+            <span class="chip">Test Automation Architect</span>
+            <span class="chip">Trainer</span>
+            <span class="chip">Interviewer</span>
+            <span class="chip">&amp; more</span>
+          </div>
+          <div class="chip-row">
+            <span class="chip-label">Worked with</span>
+            <span class="chip company">Accenture</span>
+            <span class="chip company">Cognizant</span>
+            <span class="chip company">MindTree</span>
+            <span class="chip company">Experion</span>
+            <span class="chip company">Civica</span>
+            <span class="chip company">&amp; more</span>
           </div>
         </div>
       </div>
@@ -318,7 +369,7 @@
         <div class="contact-grid">
           <div class="contact-info">
             <h3 style="color:var(--navy);margin-top:0">Vijaya Career Ready Technologies</h3>
-            <p>Software testing and test automation training in Kumbakonam, Tamil Nadu.</p>
+            <p>Software testing and test automation training through both Online (attend from anywhere around the world) and Offline modes in Kumbakonam, Tamil Nadu.</p>
             <div class="contact-line"><div class="symbol">☎</div><div><b>Phone / WhatsApp</b><span>+91 97910 32469</span></div></div>
             <div class="contact-line"><div class="symbol">@</div><div><b>Email</b><span>vcrtech@zohomail.in</span></div></div>
             <div class="contact-line"><div class="symbol">🌐</div><div><b>Website</b><span><a href="https://vcrt.pages.dev/" target="_blank" rel="noopener noreferrer" style="color:var(--blue);font-weight:700">vcrt.pages.dev</a></span></div></div>
