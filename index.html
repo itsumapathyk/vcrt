@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Vijaya Career Ready Technologies offers practical, job-oriented software testing and test automation training in Kumbakonam.">
-  <link rel="icon" href="/favicon.ico">
+<link rel="icon" href="/favicon.ico">
   <title>Vijaya Career Ready Technologies | Software Training</title>
   <style>
     :root {
@@ -117,10 +117,13 @@
     .trainer { background: linear-gradient(135deg, #10233f 0%, #17325c 100%); color: white; padding: 56px 0; position: relative; overflow: hidden; }
     .trainer::before { content: ""; position: absolute; right: -80px; top: -80px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(36,165,106,.28), transparent 70%); }
     .trainer-grid { display: grid; grid-template-columns: auto 1fr; gap: 44px; align-items: center; position: relative; }
-    .trainer-stats { display: flex; gap: 14px; }
-    .stat { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 20px 24px; text-align: center; min-width: 140px; }
+    .trainer-stats { display: flex; flex-wrap: wrap; gap: 14px; }
+    .stat { box-sizing: border-box; width: 200px; min-width: 200px; min-height: 128px; display: flex; flex-direction: column; justify-content: center; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 20px 24px; text-align: center; }
     .stat b { display: block; font-size: 46px; line-height: 1; color: #5ee0a0; font-weight: 900; }
     .stat span { display: block; margin-top: 8px; font-size: 13px; color: #d5def0; font-weight: 600; }
+    .stat-mode b { font-size: 46px; letter-spacing: -.6px; }
+    .stat-mode { flex: 0 0 200px; }
+    .stat-break { flex-basis: 100%; height: 0; }
     .trainer-kicker { font-size: 12px; font-weight: 850; letter-spacing: 1.5px; text-transform: uppercase; color: #5ee0a0; }
     .trainer h2 { color: white; margin: 6px 0 10px; font-size: clamp(24px, 3vw, 32px); }
     .trainer p { color: #d5def0; margin: 0 0 16px; max-width: 720px; }
@@ -214,6 +217,9 @@
         <div class="trainer-stats">
           <div class="stat"><b>30+</b><span>Years of industry experience</span></div>
           <div class="stat"><b>20+</b><span>Years with Fortune 500 clients</span></div>
+          <div class="stat-break" aria-hidden="true"></div>
+          <div class="stat stat-mode"><b>Online</b><span>Learn from anywhere</span></div>
+          <div class="stat stat-mode"><b>Offline</b><span>Classroom training in Kumbakonam</span></div>
         </div>
         <div>
           <div class="trainer-kicker">Learn from an industry veteran</div>
@@ -370,7 +376,7 @@
         <div class="contact-grid">
           <div class="contact-info">
             <h3 style="color:var(--navy);margin-top:0">Vijaya Career Ready Technologies</h3>
-            <p>Software testing and test automation training through both Online (attend from anywhere around the world) and Offline modes in Kumbakonam, Tamil Nadu.</p>
+            <p>Software testing and test automation training in Kumbakonam, Tamil Nadu.</p>
             <div class="contact-line"><div class="symbol">☎</div><div><b>Phone / WhatsApp</b><span>+91 97910 32469</span></div></div>
             <div class="contact-line"><div class="symbol">@</div><div><b>Email</b><span>vcrtech@zohomail.in</span></div></div>
             <div class="contact-line"><div class="symbol">🌐</div><div><b>Website</b><span><a href="https://vcrt.pages.dev/" target="_blank" rel="noopener noreferrer" style="color:var(--blue);font-weight:700">vcrt.pages.dev</a></span></div></div>
