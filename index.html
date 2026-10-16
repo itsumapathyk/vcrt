@@ -139,7 +139,17 @@
     .course details summary { color: var(--blue); font-size: 13px; font-weight: 800; cursor: pointer; }
     .course details ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-size: 13px; }
     .course details li { margin: 5px 0; }
-    .project-section { background: var(--paper); }
+    /* College / practical project showcase: a distinct blue boxed section */
+    .project-section { background: #fff; }
+    .project-section > .container {
+      background: linear-gradient(135deg, #10233f 0%, #2457d6 100%);
+      border-radius: 24px;
+      padding: 42px;
+      box-shadow: 0 18px 48px rgba(16, 35, 63, .16);
+    }
+    .project-section .section-head .kicker { color: #74e4ad; }
+    .project-section .section-head h2 { color: #fff; }
+    .project-section .section-head p { color: #e0e9f8; }
     .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .project-card { background: white; border: 1px solid var(--line); border-radius: 17px; overflow: hidden; }
     .project-card h3 { margin: 0 0 8px; color: var(--navy); font-size: 18px; }
@@ -155,8 +165,14 @@
     .fee-note { border: 1px dashed #b9c8e4; background: #f8faff; border-radius: 12px; padding: 14px 16px; color: #43516a; font-size: 13px; margin-top: 20px; }
     .fee-note strong { color: var(--navy); }
     .form-row.three { grid-template-columns: repeat(3,1fr); }
-    @media (max-width: 850px) { .project-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px) { .project-grid, .profile-points, .form-row.three { grid-template-columns: 1fr; } }
+    @media (max-width: 850px) {
+      .project-grid { grid-template-columns: 1fr 1fr; }
+      .project-section > .container { padding: 30px; }
+    }
+    @media (max-width: 560px) {
+      .project-grid, .profile-points, .form-row.three { grid-template-columns: 1fr; }
+      .project-section > .container { padding: 22px 16px; border-radius: 18px; }
+    }
 
     @media (max-width: 850px) {
       .nav-links { display: none; }
@@ -188,7 +204,29 @@
       form { padding: 19px; }
       .whatsapp { bottom: 12px; right: 12px; padding: 11px 14px; font-size: 13px; }
     }
-  </style>
+  
+    /* Final-year project showcase: match the blue project panel design */
+    #final-year-projects { padding: 18px 0 78px; background: #fff; }
+    #final-year-projects > .project-panel {
+      width: min(1204px, calc(100% - 48px)); margin: 0 auto;
+      padding: 42px 44px 44px; border-radius: 25px;
+      background: linear-gradient(120deg, #10233f 0%, #2457d6 100%);
+      box-shadow: 0 18px 45px rgba(16,35,63,.14); color: #fff;
+    }
+    #final-year-projects .project-heading { max-width: 780px; margin: 0 auto 38px; text-align: center; }
+    #final-year-projects .project-kicker { color: #66e5a1; font-size: 12px; font-weight: 850; letter-spacing: 1.5px; text-transform: uppercase; }
+    #final-year-projects h1 { color: #fff; font-size: clamp(28px, 3.3vw, 42px); line-height: 1.2; margin: 15px 0 14px; letter-spacing: -.8px; }
+    #final-year-projects .intro { color: #e0e9f8; margin: 0 auto; line-height: 1.7; max-width: 760px; }
+    #final-year-projects h2 { color: #fff; font-size: 23px; margin: 0 0 18px; letter-spacing: -.3px; }
+    #final-year-projects .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    #final-year-projects .card { overflow: hidden; border: 1px solid rgba(255,255,255,.72); border-radius: 18px; background: #fff; color: var(--navy); padding: 25px 22px 22px; box-shadow: 0 8px 22px rgba(0,0,0,.08); }
+    #final-year-projects .card h3 { color: var(--navy); font-size: 19px; line-height: 1.35; margin: 0 0 10px; }
+    #final-year-projects .card p { color: var(--muted); font-size: 14px; line-height: 1.7; margin: 0 0 17px; }
+    #final-year-projects .tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 0; }
+    #final-year-projects .tags span { display: inline-block; border-radius: 7px; background: #edf2ff; color: #23447f; padding: 6px 9px; font-size: 11px; font-weight: 750; }
+    @media (max-width: 900px) { #final-year-projects > .project-panel { padding: 32px 26px; } #final-year-projects .grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 600px) { #final-year-projects { padding: 8px 0 55px; } #final-year-projects > .project-panel { width: calc(100% - 24px); padding: 28px 16px; border-radius: 18px; } #final-year-projects .grid { grid-template-columns: 1fr; } #final-year-projects .project-heading { margin-bottom: 28px; } }
+</style>
 </head>
 <body>
   <header>
@@ -239,27 +277,8 @@
         </div>
       </div>
     </section>
- <section id="final-year-projects">
-    <h1>Final Year Computer Science Projects</h1>
-    <p class="intro">Software project ideas for B.E. / B.Tech / BCA / MCA / BSc / MSc final-year students, grouped by area.
-       Each one can be scaled up or down to fit your team size and time.</p>
 
-    <h2>Web &amp; Desktop Applications</h2>
-    <div class="grid">
-      <div class="card"><h3>Online Learning Management System</h3>
-        <p>Courses, assignments, quizzes, progress tracking and certificates, with separate student and admin roles.</p>
-        <div class="tags"><span>React</span><span>Node.js</span><span>MongoDB</span></div></div>
-      <div class="card"><h3>Hospital Appointment &amp; Records Portal</h3>
-        <p>Patients book slots, doctors view history, and admins manage departments.</p>
-        <div class="tags"><span>C# .NET</span><span>SQL Server</span><span>Bootstrap</span></div></div>
-      <div class="card"><h3>Local Services Marketplace App</h3>
-        <p>Connects users with electricians, plumbers and tutors, with ratings and booking.</p>
- 	<div class="tags"><span>C# .NET</span><span>SQL Server</span><span>Bootstrap</span></div></div>
-      <div class="card"><h3>Expense Tracker with Insights</h3>
-        <p>Records spending, sets budgets and shows monthly charts and saving tips.</p>
-        <div class="tags"><span>Java</span><span>MySQL</span></div></div>
-    </div>
- </section>
+
     <section class="trainer" id="trainer" aria-label="About the trainer">
       <div class="container trainer-grid">
         <div class="trainer-stats">
@@ -462,7 +481,30 @@
         </div>
       </div>
     </section>
-
+ <section id="final-year-projects">
+   <div class="project-panel">
+    <div class="project-heading">
+      <div class="project-kicker">Final Year Projects</div>
+      <h1>Final Year Computer Science Projects</h1>
+      <p class="intro">Software project ideas for B.E. / B.Tech / BCA / MCA / BSc / MSc final-year students, grouped by area. Each one can be scaled up or down to fit your team size and time.</p>
+    </div>
+    <h2>Web &amp; Desktop Applications</h2>
+    <div class="grid">
+      <div class="card"><h3>Online Learning Management System</h3>
+        <p>Courses, assignments, quizzes, progress tracking and certificates, with separate student and admin roles.</p>
+        <div class="tags"><span>React</span><span>Node.js</span><span>MongoDB</span></div></div>
+      <div class="card"><h3>Hospital Appointment &amp; Records Portal</h3>
+        <p>Patients book slots, doctors view history, and admins manage departments.</p>
+        <div class="tags"><span>C# .NET</span><span>SQL Server</span><span>Bootstrap</span></div></div>
+      <div class="card"><h3>Local Services Marketplace App</h3>
+        <p>Connects users with electricians, plumbers and tutors, with ratings and booking.</p>
+ 	<div class="tags"><span>C# .NET</span><span>SQL Server</span><span>Bootstrap</span></div></div>
+      <div class="card"><h3>Expense Tracker with Insights</h3>
+        <p>Records spending, sets budgets and shows monthly charts and saving tips.</p>
+        <div class="tags"><span>Java</span><span>MySQL</span></div></div>
+    </div>
+   </div>
+ </section>
     <section id="learning-path">
       <div class="container">
         <div class="section-head">
